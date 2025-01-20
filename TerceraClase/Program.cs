@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Numerics;
 class Program
 {
     static void Main(string[] args)
@@ -43,7 +43,7 @@ class Program
 
             string operacion = Console.ReadLine() ?? "";
             double resultado;
-            Console.WriteLine(operacion);
+            Complex resultadoComplejo;  
 
             switch (operacion)
             {
@@ -75,17 +75,8 @@ class Program
                     break;
 
                 case "5": // Raíz cuadrada
-                    if (numero1 < 0)
-                    {
-                        Console.WriteLine("Error: No se puede calcular la raíz cuadrada de un numero negativo.");
-
-                    }
-                    else
-                    {
-                        resultado = Math.Sqrt(numero1);
-                        Console.WriteLine($"Resultado: {resultado}");
-
-                    }
+                    resultadoComplejo = Complex.Sqrt(new Complex(numero1, 0));
+                    Console.WriteLine($"Resultado: {resultadoComplejo}");
                     break;
 
                 case "6": // Elevar al cuadrado
@@ -109,7 +100,7 @@ class Program
                     break;
 
             }
-
+        
             if (continuar)
             {
                 Console.WriteLine("\nPresiona cualquier tecla para continuar...");
